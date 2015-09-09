@@ -1,0 +1,20 @@
+
+    public void readFile() {
+        try {
+            String inputfile = "info.txt";
+            BufferedReader in = new BufferedReader(new FileReader(inputfile));
+            String line = in.readLine();
+            while (line != null) {
+                String newLine = line.toLowerCase();
+                if (newLine.startsWith("numstars"))
+                {
+                    String numStarsString = newLine.substring(9);
+                    numStars = Integer.parseInt(numStarsString.trim());
+                }
+                line = in.readLine();
+            }
+            in.close();
+        } catch (IOException ioe) {
+        }
+    }
+
